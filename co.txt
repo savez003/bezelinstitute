@@ -1,0 +1,24 @@
+create table savez (id int identity primary key,name varchar(50),dep varchar(50),salary int)
+insert into savez values('savez','.net',20000)
+insert into savez values('dhoni','java',18000)
+insert into savez values('mayank','sql',15000)
+insert into savez values('sagar','web',30000)
+insert into savez values('rohit','hr',10000)
+insert into savez values('rahul','.net',18000)
+select * from savez
+
+alter procedure savezSalary 
+@salary int,@name varchar(50)
+as
+begin
+select * from savez where salary<=@salary or name=@name
+end
+
+sp_helptext savezSalary
+execute savezSalary 15000,savez 
+
+
+
+
+
+
